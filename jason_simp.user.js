@@ -36,6 +36,7 @@ function showInfo() {
 	var RoomNumber = getValueById("ppl_room_num");
 	var ProblemDescription = getValueById("tckt_descr"); // fails if ticket description is read only because instead it has id="tckt_descr_ro"
 	var ProblemSolution = getProblemSolution();
+	var HelpDeskUserName = getHelpDeskUserName();
 
 	//*/
 	text += "Username: " + UHUsername;
@@ -53,6 +54,9 @@ function showInfo() {
 	text += "* Problem Solution *\n";
 	text += "************************\n";
 	text += ProblemSolution;
+	text += "\n\n";
+	text += "This Meeting Maker job was posted by "+ HelpDeskUserName;
+		text += " on "+ Date();
 
 	alert(text);
 }
@@ -87,3 +91,10 @@ function getBuildingName() {
 	return buildingForm[buildingForm.selectedIndex].label;
 }
 
+function getHelpDeskUserName() {
+	var logoutButtonString = document.getElementById("link-logout").firstChild.innerHTML;
+	// logoutButtonString now has form "LOGOUT [username]"
+	logoutButtonString = String(logoutButtonString.match(/\[.*\]/));
+	console.log("testlog");
+	return logoutButtonString.match(/[a-z]+/);
+}
