@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name           Jason Simp
+// @name           Jason SIMP
 // @namespace      jaxelson.com
-// @description    Simp scripts
+// @description    SIMP Scripts v2
 // @include        http://web06.its.hawaii.edu/simp/*
 // @include        http://www.hawaii.edu/simp/*
 // ==/UserScript==
