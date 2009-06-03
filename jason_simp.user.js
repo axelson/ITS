@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Jason SIMP
 // @namespace      jaxelson.com
-// @description    SIMP Scripts v2
+// @description    SIMP Scripts v3
 // @include        http://web06.its.hawaii.edu/simp/*
 // @include        http://www.hawaii.edu/simp/*
 // ==/UserScript==
@@ -33,7 +33,7 @@ function showInfo() {
 	var LastName = getValueById("ppl_name_last");
 	var Building = getBuildingName();
 	var RoomNumber = getValueById("ppl_room_num");
-	var ProblemDescription = getValueById("tckt_descr"); // fails if ticket description is read only because instead it has id="tckt_descr_ro"
+	var ProblemDescription = getTicketDescription();
 	var ProblemSolution = getProblemSolution();
 	var HelpDeskUserName = getHelpDeskUserName();
 
@@ -97,3 +97,16 @@ function getHelpDeskUserName() {
 	console.log("testlog");
 	return logoutButtonString.match(/[a-z]+/);
 }
+
+function getTicketDescription() {
+	console.log("getTicketDescription:");
+	var id="";
+
+	// If Ticket Description is read-only element is called tckt_descr_ro otherwise called tckt_descr
+	if( document.getElementById("tckt_descr") ) {
+		return document.getElementById("tckt_descr").value;
+	} else {
+		return document.getElementById("tckt_descr_ro").innerHTML;
+	}
+}
+
