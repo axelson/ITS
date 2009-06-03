@@ -7,13 +7,11 @@
 // ==/UserScript==
 
 //13932 SIMP test ticket
-//showInfo();
 addButton();
 
 function addButton() {
 	var button = document.createElement("button");
 	button.type = "button";
-	//button.setAttribute("value","CopyForSIMP");
 	button.innerHTML = "CopyForMM";
 	button.id = "SIMP_button";
 	button.style.cursor = "pointer";
@@ -26,7 +24,8 @@ function addButton() {
 function showInfo() {
 	//*
 	var text="";
-	//var text="test-jason-greasemonkey 2\n\n";
+
+	// Fill variables relating to all ticket fields
 	var TicketNumber = getValueById("tckt_id");
 	var UHUsername = getValueById("ppl_uhusername");
 	var PhoneNumber = getValueById("ppl_ofc_phone");
