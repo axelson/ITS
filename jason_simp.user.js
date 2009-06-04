@@ -7,8 +7,11 @@
 // ==/UserScript==
 
 //13932 SIMP test ticket
-addMMButton();
-addSearchOptions();
+if(window.location.href.search("tckt_id=") == -1) {
+	addSearchOptions();
+} else {
+	addMMButton();
+}
 
 // Add button to copy information to paste into Meeting Maker (MM) job
 function addMMButton() {
