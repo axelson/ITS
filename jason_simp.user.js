@@ -8,6 +8,7 @@
 
 //13932 SIMP test ticket
 addMMButton();
+addSearchOptions();
 
 // Add button to copy information to paste into Meeting Maker (MM) job
 function addMMButton() {
@@ -20,6 +21,27 @@ function addMMButton() {
 
 	var section = document.getElementById("submit_section");
 	section.appendChild(button);
+}
+
+function addSearchOptions() {
+	console.log("addSearchOptions: enter");
+
+	var searchOptions=document.createElement("select");
+	searchOptions.id="quickAdvancedSearchDropDown";
+	searchOptions.addEventListener("change", doQuickAdvancedSearch, true);
+	searchOptions.options[0] = new Option("Select an advanced option", "2nd text");
+	searchOptions.options[1] = new Option("Ticket Number", "2nd text");
+	searchOptions.options[2] = new Option("Customer UH Username", "2nd text");
+	searchOptions.options[3] = new Option("Last Name", "2nd text");
+	searchOptions.options[4] = new Option("First Name", "2nd text");
+	searchOptions.options[5] = new Option("ITS Username", "2nd text");
+	document.getElementById("tcktFilterFrm").appendChild(searchOptions);
+}
+
+// Add radio buttons to choose search type
+function doQuickAdvancedSearch() {
+	alert("doQuickAdvancedSearch()");
+//	alert(getValueById("search_str"));
 }
 
 // Show the Meeting Maker information
