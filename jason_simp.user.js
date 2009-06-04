@@ -1,27 +1,29 @@
 // ==UserScript==
 // @name           Jason SIMP
 // @namespace      jaxelson.com
-// @description    SIMP Scripts v3
+// @description    SIMP Scripts v1.01
 // @include        http://web06.its.hawaii.edu/simp/*
 // @include        http://www.hawaii.edu/simp/*
 // ==/UserScript==
 
 //13932 SIMP test ticket
-addButton();
+addMMButton();
 
-function addButton() {
+// Add button to copy information to paste into Meeting Maker (MM) job
+function addMMButton() {
 	var button = document.createElement("button");
 	button.type = "button";
 	button.innerHTML = "CopyForMM";
 	button.id = "SIMP_button";
 	button.style.cursor = "pointer";
-	button.addEventListener("click", function(e) { showInfo(); }, false);
+	button.addEventListener("click", function(e) { showMMInfo(); }, false);
 
 	var section = document.getElementById("submit_section");
 	section.appendChild(button);
 }
 
-function showInfo() {
+// Show the Meeting Maker information
+function showMMInfo() {
 	//*
 	var text="";
 
@@ -60,6 +62,7 @@ function showInfo() {
 	alert(text);
 }
 
+// Get the raw text of the Problem Solution
 function getProblemSolution() {
 	var text="\n";
 	var history = document.getElementById("tckt_history_section").childNodes;
@@ -79,6 +82,7 @@ function getProblemSolution() {
 	}
 }
 
+// Get the DOM value by the elements id
 function getValueById(id) {
 	console.log("getElementById: id="+ id);
 	return document.getElementById(id).value
@@ -90,6 +94,7 @@ function getBuildingName() {
 	return buildingForm[buildingForm.selectedIndex].label;
 }
 
+// Get the username of the help desk user pasting the job
 function getHelpDeskUserName() {
 	var logoutButtonString = document.getElementById("link-logout").firstChild.innerHTML;
 	// logoutButtonString now has form "LOGOUT [username]"
@@ -98,6 +103,7 @@ function getHelpDeskUserName() {
 	return logoutButtonString.match(/[a-z]+/);
 }
 
+// Get the text of the SIMP ticket description field
 function getTicketDescription() {
 	console.log("getTicketDescription:");
 	var id="";
