@@ -32,12 +32,12 @@ function addSearchOptions() {
 	var searchOptions=document.createElement("select");
 	searchOptions.id="quickAdvancedSearchDropDown";
 	searchOptions.addEventListener("change", doQuickAdvancedSearch, true);
-	searchOptions.options[0] = new Option("Select an advanced option", "2nd text");
-	searchOptions.options[1] = new Option("Ticket Number", "2nd text");
-	searchOptions.options[2] = new Option("Customer UH Username", "2nd text");
-	searchOptions.options[3] = new Option("Last Name", "2nd text");
-	searchOptions.options[4] = new Option("First Name", "2nd text");
-	searchOptions.options[5] = new Option("ITS Username", "2nd text");
+	searchOptions.options[0] = new Option("Select an advanced option", "");
+	searchOptions.options[1] = new Option("Ticket Number", "TicketNumber");
+	searchOptions.options[2] = new Option("Customer UH Username", "CustomerUHUsername");
+	searchOptions.options[3] = new Option("Last Name", "LastName");
+	searchOptions.options[4] = new Option("First Name", "FirstName");
+	searchOptions.options[5] = new Option("ITS Username", "ITSUsername");
 	document.getElementById("tcktFilterFrm").appendChild(searchOptions);
 }
 
