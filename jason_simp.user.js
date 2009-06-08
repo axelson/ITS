@@ -6,12 +6,19 @@
 // @include        http://www.hawaii.edu/simp/*
 // ==/UserScript==
 
+// Globals
+var SEARCH_BOX_ID = "search_str";
+
 //13932 SIMP test ticket
+
+
 if(window.location.href.search("tckt_id=") == -1) {
 	addSearchOptions();
 } else {
 	addMMButton();
 }
+
+// Functions
 
 // Add button to copy information to paste into Meeting Maker (MM) job
 function addMMButton() {
@@ -26,6 +33,7 @@ function addMMButton() {
 	section.appendChild(button);
 }
 
+// Add extra search options to SIMP main page
 function addSearchOptions() {
 	console.log("addSearchOptions: enter");
 
@@ -76,6 +84,7 @@ function doQuickAdvancedSearch(e) {
 
 // Show the Meeting Maker information
 function showMMInfo() {
+	console.log("showMMInfo: Enter function");
 	//*
 	var text="";
 
@@ -151,7 +160,6 @@ function getHelpDeskUserName() {
 	var logoutButtonString = document.getElementById("link-logout").firstChild.innerHTML;
 	// logoutButtonString now has form "LOGOUT [username]"
 	logoutButtonString = String(logoutButtonString.match(/\[.*\]/));
-	console.log("testlog");
 	return logoutButtonString.match(/[a-z]+/);
 }
 
