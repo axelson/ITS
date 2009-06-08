@@ -73,7 +73,7 @@ function doQuickAdvancedSearch(e) {
 	    searchStr += "&filterCreatedUsername=";
 	    break;
 	default:
-	    alert("doSearch error, searchType not expected (searchType="+ searchType +")");
+	    fatalError("doSearch error, searchType not expected (searchType="+ searchType +")");
     }
     
     searchStr += getValueById(SEARCH_BOX_ID);
@@ -176,3 +176,6 @@ function getTicketDescription() {
 	}
 }
 
+function fatalError(messageInfo) {
+	alert("An error has occured in the Greasemonkey script running on this page. If this is causing a problem, disable the script by clicking on the brown monkey in the lower right-hand corner of the browser. More information is below.\n\n"+ messageInfo);
+}
